@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @Import(DefaultArtikelService.class)
-@ComponentScan(value = "be.vdab.allesvoordekeuken.repositories", resourcePattern = "JpaArtikelRepository.class")
+@ComponentScan(value = "be.vdab.allesvoordekeuken2.repositories", resourcePattern = "JpaArtikelRepository.class")
 @Sql("/insertArtikel.sql")
 class DefaultArtikelServiceIntegrationTest extends AbstractTransactionalJUnit4SpringContextTests {
     private final DefaultArtikelService service;
