@@ -1,6 +1,7 @@
 package be.vdab.allesvoordekeuken2.repositories;
 
 import be.vdab.allesvoordekeuken2.domain.FoodArtikel;
+import be.vdab.allesvoordekeuken2.domain.Korting;
 import be.vdab.allesvoordekeuken2.domain.NonFoodArtikel;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -90,5 +91,11 @@ public class JpaArtikelRepositoryTest extends
                 "select verkoopprijs from artikels where id=?", BigDecimal.class, idVanTestFoodArtikel()))
                 .isEqualByComparingTo("132");
     }
+    @Test
+    void kortingenLezen() {
+        assertThat(repository.findById(idVanTestFoodArtikel()).get().getKortingen())
+                .containsOnly(new Korting(1, BigDecimal.TEN));
+    }
+
 
 }
